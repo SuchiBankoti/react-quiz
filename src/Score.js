@@ -4,9 +4,8 @@ export default function Score(props) {
     const ScoreArr = props.Quiz
 
     let score = ScoreArr.filter(obj => obj.correct === obj.selected)
-    console.log(score)
     return (<div>
-        <h1>{score.length}/5</h1>
+        <h1>{score.length}/{ScoreArr.length}</h1>
     </div>)
 
 }
