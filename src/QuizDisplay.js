@@ -17,10 +17,11 @@ export default function QuizDisplay(props) {
         return (
             <div
                 key={nanoid()}
+                className="single-option"
                 style={{
-                    backgroundColor: props.Result ? (option === a ? "pink" :
-                        (option === s ? "green" : "")) :
-                        (s === option ? "white" : "")
+                    backgroundColor: props.Result ? (option === a ? "#94D7A2" :
+                        (option === s ? "#F8BCBC" : "")) :
+                        (s === option ? "#D6DBF5" : "")
                 }}
                 onClick={() => props.Result ? "" : props.Select(Id, option)}
             >
@@ -29,8 +30,8 @@ export default function QuizDisplay(props) {
         )
     })
     return (
-        <div className="Quizbox">
-            <div>{Q}</div>
+        <div>
+            <div className="question">{Q}</div>
             <div className="options">
                 {displayOptions}
             </div>
@@ -39,14 +40,3 @@ export default function QuizDisplay(props) {
 }
 
 
-/* <div
-key={nanoid()}
-style={{
-    backgroundColor: props.Result ? (option === a ? "pink" :
-        (option === s ? "green" : "")) :
-        (s === option ? "white" : "")
-}}
-onClick={() => props.Result ? "" : props.Select(Id, option)}
->
-{option}
-</div> */

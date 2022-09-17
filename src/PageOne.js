@@ -1,26 +1,30 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { nanoid } from "nanoid"
 import QuizDisplay from "./QuizDisplay"
 import Score from "./Score"
+import LoadingImage from "./loading.png"
 
 export default function PageOne() {
 
-    const [quiz, setQuiz] = React.useState("")
-    const [Result, setResult] = React.useState(false)
-    const [newGame, setNewGame] = React.useState(0)
-    React.useEffect(() => {
-        async function getQuiz() {
-            let result = await fetch("https://opentdb.com/api.php?amount=5&type=multiple")
-            let data = await result.json()
-            const arr = data.results
-            let questionsArray = arr.map(obj => {
-                const { question, correct_answer: correct, incorrect_answers: incorrect } = obj;
-                return { id: nanoid(), question, correct, incorrect, selected: null };
-            })
-            setQuiz(questionsArray)
+    const [quiz, setQuiz] = useState([])
+    const [Result, setResult] = useState(false)
+    const [loading, setLoading] = useState(true)
+    useEffect(() => {
+        if (loading) {
+            async function getQuiz() {
+                let result = await fetch("https://opentdb.com/api.php?amount=5&type=multiple")
+                let data = await result.json()
+                const arr = data.results
+                let questionsArray = arr.map(obj => {
+                    const { question, correct_answer: correct, incorrect_answers: incorrect } = obj;
+                    return { id: nanoid(), question, correct, incorrect, selected: null };
+                })
+                setLoading(false)
+                setQuiz(questionsArray)
+            }
+            getQuiz()
         }
-        getQuiz()
-    }, [newGame])
+    }, [loading])
 
     function click(id, value) {
         setQuiz(prev => prev.map(obj => obj.id === id ?
@@ -36,32 +40,40 @@ export default function PageOne() {
     }
 
     function StartNewGame() {
-        setQuiz([])
         checkResult()
-        setNewGame(prev => prev + 1)
+        setLoading(true)
     }
 
 
-    if (quiz.length > 0) {
-        let displayQuiz = quiz.map((question) => <QuizDisplay Result={Result} key={question.id} Select={click}
-            Ques={question} />)
+
+    let displayQuiz = quiz.map((question) => <QuizDisplay Result={Result} key={question.id} Select={click}
+        Ques={question} />)
 
 
-        return (
-            <div>
+    return (
+        <div className="page-one">
+            {loading ? <div className="loading">
+                <h1>Loading</h1>
                 <div>
-                    {displayQuiz}
-                </div>
-                <div>
-                    {Result ? <Score Quiz={quiz} /> : ""}
-                </div>
-                <div>
-                    {Result ? <button onClick={StartNewGame}>NewGame</button> : <button onClick={checkResult}>:Get Results</button>}
-                </div>
-            </div>
-        )
-    }
-
+                    <img className="loading-dots" alt="dot" src={LoadingImage} /></div>
+                <div> <img className="loading-dots" alt="dot" src={LoadingImage} /></div>
+                <div> <img className="loading-dots" alt="dot" src={LoadingImage} /></div>
+                <div> <img className="small-loading-dots" alt="dot" src={LoadingImage} /></div>
+                <div> <img className="small-loading-dots" alt="dot" src={LoadingImage} /></div>
+                <div> <img className="small-loading-dots" alt="dot" src={LoadingImage} /></div>
+            </div> :
+                <>
+                    <div>
+                        {displayQuiz}
+                    </div>
+                    <div>
+                        {Result ?
+                            <Score Quiz={quiz} StartNewGame={StartNewGame} />
+                            : <button className="get-result-btn" onClick={checkResult}>Get Results</button>}
+                    </div>
+                </>}
+        </div>
+    )
 
 }
 

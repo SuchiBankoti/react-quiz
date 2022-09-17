@@ -1,30 +1,125 @@
+*{
+  box-sizing: border-box;
+}
 body {
+  width: 50%;
   background-color: #DEEBF8;
-  ;
 }
 
-page {
+.page{
+  max-width:100%;
+  min-width:fit-content;
+  min-height:620px;
+  max-height: fit-content;
+  background-color: #F5F7FB;
+  border: 5px solid white;
+  border-radius: 10px;
+  position: absolute;
+  right: 35%;
+  left: 20%;
+}
 
-  width: 100%;
-  height: 100%;
-  background: #F5F7FB;
+.front-page{
+  height: 620px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ align-items: center;
+}
+
+
+.page-one {
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-right:10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 5px solid white;
-  box-shadow: 1px 1px rgb(170, 167, 167);
-  border-radius: 10px;
 }
 
 .options {
   display: flex;
-  border: 1px solid black;
-  justify-content: space-around;
-  margin: 20px;
+  justify-content:space-between;
+  margin-top: 10px;
+  margin-bottom: 30px;
 
 }
+.single-option{
+width: fit-content;
+height: fit-content;
 
-.Quizbox {
+padding:5px;
+border: 0.794239px solid #D6DBF5;;
+border-radius: 7.94239px;
+font-size: medium;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.question{
+  font-size: large;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.score-box{
   display: flex;
-  flex-direction: column;
+}
+.new-game-btn, .get-result-btn, .start-quiz-btn{
+margin:20px;
+background-color: #4D5B9E;
+color:#F5F7FB;
+width:150px;
+height:35px;
+border:1px solid #4D5B9E;
+border-radius: 20px;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-size: large;
+
+}
+.loading{
+  width:100%;
+  font-size: x-large;
+  position: absolute;
+  top: 200px;
+  display: flex;
+  align-items:center;
+}
+.loading-dots{
+    width: 35px;
+    height:35px;
+    margin:10px;
+}
+.small-loading-dots{
+  width:10px;
+  height:10px;
+  margin:10px;
+}
+.quiz-des{
+  display: flex;
+  margin: 20px;
+}
+.quiz-des-pink{
+ background: #F8BCBC;
+ color: #F8BCBC;
+ margin-left: 10px;
+ margin-right: 10px;
+}
+ .quiz-des-green{
+   background: #94D7A2;
+   color: #94D7A2;
+   margin-left: 10px;
+ margin-right: 10px;
+ }
+ 
+ .blob{
+  width: 20%;
+  position: absolute;
+  right:0;
+ }
+
+.logo{
+  width:100px;
+  height:70px;
+}
+.quiz-heading{
+  letter-spacing: 10px;
+  font-family:Verdana;
+  font-weight:1000;
 }
