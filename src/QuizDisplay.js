@@ -1,6 +1,6 @@
 import React from "react";
 import { nanoid } from "nanoid";
-
+import he from "he"
 export default function QuizDisplay(props) {
     const {
         id: Id,
@@ -25,13 +25,13 @@ export default function QuizDisplay(props) {
                 }}
                 onClick={() => props.Result ? "" : props.Select(Id, option)}
             >
-                {option}
+                {he.decode(option)}
             </div>
         )
     })
     return (
         <div>
-            <div className="question">{Q}</div>
+            <div className="question">{he.decode(Q)}</div>
             <div className="options">
                 {displayOptions}
             </div>

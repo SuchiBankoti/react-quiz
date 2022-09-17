@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"
 import { nanoid } from "nanoid"
 import QuizDisplay from "./QuizDisplay"
 import Score from "./Score"
-import LoadingImage from "./loading.png"
 
 export default function PageOne() {
 
@@ -12,6 +11,7 @@ export default function PageOne() {
     useEffect(() => {
         if (loading) {
             async function getQuiz() {
+
                 let result = await fetch("https://opentdb.com/api.php?amount=5&type=multiple")
                 let data = await result.json()
 
@@ -55,16 +55,9 @@ export default function PageOne() {
         <div className="page-one">
             {loading ? <div className="loading">
                 <h2>Loading</h2>
-                <div>
-                    <img className="loading-dots" alt="dot" src={LoadingImage} /></div>
-                <div> <img className="loading-dots" alt="dot" src={LoadingImage} /></div>
-                <div> <img className="loading-dots" alt="dot" src={LoadingImage} /></div>
-                <div> <img className="small-loading-dots" alt="dot" src={LoadingImage} /></div>
-                <div> <img className="small-loading-dots" alt="dot" src={LoadingImage} /></div>
-                <div> <img className="small-loading-dots" alt="dot" src={LoadingImage} /></div>
             </div> :
                 <>
-                    <div>
+                    <div className="question-container">
                         {displayQuiz}
                     </div>
                     <div>
