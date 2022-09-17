@@ -54,7 +54,7 @@ export default function PageOne() {
     return (
         <div className="page-one">
             {loading ? <div className="loading">
-                <h1>Loading</h1>
+                <h2>Loading</h2>
                 <div>
                     <img className="loading-dots" alt="dot" src={LoadingImage} /></div>
                 <div> <img className="loading-dots" alt="dot" src={LoadingImage} /></div>

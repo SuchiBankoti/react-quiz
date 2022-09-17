@@ -7,8 +7,9 @@ body {
 }
 
 .page{
-  max-width:100%;
-  min-width:fit-content;
+  max-width:50%;
+  margin:auto;
+  min-width:min-content;
   min-height:620px;
   max-height: fit-content;
   background-color: #F5F7FB;
@@ -82,14 +83,14 @@ font-size: large;
   align-items:center;
 }
 .loading-dots{
-    width: 35px;
-    height:35px;
-    margin:10px;
+    width: 25%;
+    height:25%;
+    margin:5px;
 }
 .small-loading-dots{
-  width:10px;
-  height:10px;
-  margin:10px;
+  width:15%;
+  height:15%;
+  margin:5px;
 }
 .quiz-des{
   display: flex;
