@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 body {
-  width: 50%;
+  width: 100vh;
   background-color: #DEEBF8;
 }
 
@@ -15,8 +15,8 @@ body {
   border: 5px solid white;
   border-radius: 10px;
   position: absolute;
-  right: 35%;
-  left: 20%;
+  right: 0;
+  left: 0;
 }
 
 .front-page{

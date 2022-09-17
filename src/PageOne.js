@@ -14,6 +14,7 @@ export default function PageOne() {
             async function getQuiz() {
                 let result = await fetch("https://opentdb.com/api.php?amount=5&type=multiple")
                 let data = await result.json()
+
                 const arr = data.results
                 let questionsArray = arr.map(obj => {
                     const { question, correct_answer: correct, incorrect_answers: incorrect } = obj;
