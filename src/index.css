@@ -32,7 +32,7 @@ h1 {
 .btn {
   background-color: rgb(111, 173, 214);
   margin: 5px;
-  width: 10%;
+  width: fit-content;
   color: white;
   font-size: medium;
   border-radius: 5%;
@@ -57,7 +57,7 @@ h1 {
 .start-btn {
   margin-top: 10px;
   background-color: rgb(111, 173, 214);
-  width: 10%;
+  width: fit-content;
   color: azure;
   font-weight: 900;
   letter-spacing: 1px;
