@@ -2,6 +2,7 @@ import { nanoid } from "nanoid";
 import React, { useEffect, useState } from "react";
 import Quiz from "./Ques";
 export default function App() {
+  const [toggle, setToggle] = useState(true);
   const [quiz, setQuiz] = useState([]);
   const [result, setResult] = useState(false);
   const [i, setI] = useState([]);
@@ -34,7 +35,7 @@ export default function App() {
         while (set1.size < 4) {
           set1.add(Math.floor(Math.random() * 4));
         }
-        setI((prev) => (prev = Array.from(set1.values())));
+        setI(Array.from(set1.values()));
       }
       getQuiz();
     }
@@ -61,19 +62,33 @@ export default function App() {
   ));
 
   return (
-    <div>
-      <h1>Quizzical</h1>
-      <ol>{q}</ol>
-      {result ? (
-        <div>
-          score{getResult().length}/{quiz.length}
+    <div className="background">
+      {toggle ? (
+        <div className="front-page">
+          <h1 className="quizzical">Quizzical</h1>
+          <p className="quiz-des">
+            quizes are for dummies but you go ahead, you Champ!!
+          </p>
+          <button onClick={() => setToggle(false)} className="start-btn">
+            Start
+          </button>
         </div>
       ) : (
-        ""
+        <div>
+          <h1 className="quiz-heading">Quizzical</h1>
+          <ol>{q}</ol>
+          {result ? (
+            <div className="score">
+              score {getResult().length}/{quiz.length}
+            </div>
+          ) : (
+            ""
+          )}
+          <button onClick={() => setResult((prev) => !prev)} className="btn">
+            {result ? "New Quiz" : "Get Result"}
+          </button>
+        </div>
       )}
-      <button onClick={() => setResult((prev) => !prev)}>
-        {result ? "New Quiz" : "Get Result"}
-      </button>
     </div>
   );
 }

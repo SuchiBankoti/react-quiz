@@ -20,7 +20,7 @@ export default function Quiz(props) {
           style={{
             background:
               props.result && a === correct
-                ? "green"
+                ? "rgb(175, 228, 175)"
                 : selected === a && props.result && a !== correct
                 ? "red"
                 : selected === a && !props.result
@@ -36,7 +36,7 @@ export default function Quiz(props) {
           style={{
             background:
               props.result && b === correct
-                ? "green"
+                ? "rgb(175, 228, 175)"
                 : selected === b && props.result && b !== correct
                 ? "red"
                 : selected === b && !props.result
@@ -52,7 +52,7 @@ export default function Quiz(props) {
           style={{
             background:
               props.result && c === correct
-                ? "green"
+                ? "rgb(175, 228, 175)"
                 : selected === c && props.result && c !== correct
                 ? "red"
                 : selected === c && !props.result
@@ -68,7 +68,7 @@ export default function Quiz(props) {
           style={{
             background:
               props.result && d === correct
-                ? "green"
+                ? "rgb(175, 228, 175)"
                 : selected === d && props.result && d !== correct
                 ? "red"
                 : selected === d && !props.result

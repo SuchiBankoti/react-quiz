@@ -3,6 +3,9 @@
   margin: 0;
 }
 h1 {
+  margin: 0;
+}
+.quiz-heading {
   text-align: center;
   border-bottom: 1px solid black;
 }
@@ -17,4 +20,52 @@ h1 {
 .question {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
+}
+.score {
+  font-size: x-large;
+  font-weight: 900;
+  text-align: center;
+  width: 50%;
+  margin-top: 10px;
+}
+.btn {
+  background-color: rgb(111, 173, 214);
+  margin: 5px;
+  width: 10%;
+  color: white;
+  font-size: medium;
+  border-radius: 5%;
+}
+.front-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.quiz-des {
+  font-family: cursive;
+  letter-spacing: 1px;
+}
+.quizzical {
+  font-family: Arial, sans-serif;
+  letter-spacing: 5px;
+  font-size: 50px;
+  text-shadow: 5px 2px rgb(111, 173, 214);
+}
+.start-btn {
+  margin-top: 10px;
+  background-color: rgb(111, 173, 214);
+  width: 10%;
+  color: azure;
+  font-weight: 900;
+  letter-spacing: 1px;
+  border: 1px solid rgb(111, 173, 214);
+  border-radius: 5%;
+  height: 35px;
+}
+.background {
+  background-color: rgb(221, 240, 255);
+  height: 100%;
 }
